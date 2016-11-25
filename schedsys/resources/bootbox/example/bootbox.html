@@ -1,0 +1,136 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My page</title>
+
+    <!-- CSS dependencies -->
+ <link rel="stylesheet" type="text/css" href="../../bootstrap3/css/bootstrap.min.css">
+</head>
+<body>
+
+    <p>Content here. <a class="alert" href=#>Alert!</a></p>
+
+    <!-- JS dependencies -->
+    <script src="../../jquery.min.js"></script>
+    <script src="../../bootstrap3/js/bootstrap.min.js"></script>
+
+    <!-- bootbox code -->
+    <script src="../../bootbox/bootbox.min.js"></script>
+    <script type='text/javascript'>
+$(document).ready(function(){
+           bootbox.alert("Hello world!", function() {
+                console.log("Alert Callback");
+            });
+           bootbox.confirm("Are you sure?", function(result) {
+ 
+            }); 
+           bootbox.prompt("What is your name?", function(result) {                
+  if (result === null) { }else{ }
+});  
+
+bootbox.prompt({
+  title: "What is your real name?",
+  value: "makeusabrew",
+  callback: function(result) {
+    if (result === null) {
+   
+    } else {
+   
+    }
+  }
+});
+
+/*Custom dialog*/
+bootbox.dialog({
+  message: "I am a custom dialog",
+  title: "Custom title",
+  buttons: {
+    success: {
+      label: "Success!",
+      className: "btn-success",
+      callback: function() {
+      
+      }
+    },
+    danger: {
+      label: "Danger!",
+      className: "btn-danger",
+      callback: function() {
+       
+      }
+    },
+    main: {
+      label: "Click ME!",
+      className: "btn-primary",
+      callback: function() {
+      
+      }
+    }
+  }
+});
+
+/*Custom html*/
+
+bootbox.dialog({
+                title: "This is a form in a modal.",
+                message: '<div class="row" style="width:100%; height:700px;">  ' +
+                    '<div class="col-md-12"> ' +
+                    '<form class="form-horizontal"> ' +
+                    '<div class="form-group"> ' +
+                    '<label class="col-md-4 control-label" for="name">Name</label> ' +
+                    '<div class="col-md-4"> ' +
+                    '<input id="name" name="name" type="text" placeholder="Your name" class="form-control input-md"> ' +
+                    '<span class="help-block">Here goes your name</span> </div> ' +
+                    '</div> ' +
+                    '<div class="form-group"> ' +
+                    '<label class="col-md-4 control-label" for="awesomeness">How awesome is this?</label> ' +
+                    '<div class="col-md-4"> <div class="radio"> <label for="awesomeness-0"> ' +
+                    '<input type="radio" name="awesomeness" id="awesomeness-0" value="Really awesome" checked="checked"> ' +
+                    'Really awesome </label> ' +
+                    '</div><div class="radio"> <label for="awesomeness-1"> ' +
+                    '<input type="radio" name="awesomeness" id="awesomeness-1" value="Super awesome"> Super awesome </label> ' +
+                    '</div> ' +
+                    '</div> </div>' +
+                    '</form> </div>  </div>',
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function () {
+                            var name = $('#name').val();
+                            var answer = $("input[name='awesomeness']:checked").val()
+                           
+                        }
+                    }
+                }
+            }).find("div.modal-dialog").addClass("largeWidth");
+
+
+
+
+bootbox.dialog({
+  title: "That html",
+  message: '<img src="images/bootstrap_logo.png" width="100px"/><br/> You can also use <b>html</b>'
+});
+
+
+});
+        $(document).on("click", ".alert", function(e) {
+            bootbox.alert("Hello world!", function() {
+                console.log("Alert Callback");
+            });
+        });
+    </script>
+<style type='text/css'>
+.largeWidth {
+    margin: 0 auto;
+    width: 90%;
+
+
+}
+</style>
+</body>
+</html>
